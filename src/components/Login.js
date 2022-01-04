@@ -2,15 +2,15 @@ import React from 'react';
 import { GoogleLogin } from 'react-google-login';
 import { useNavigate } from 'react-router-dom';
 
-import { REACT_APP_GOOGLE_CLIENT_ID, REACT_APP_AUTHORISED_USERS } from '../App';
+import { GOOGLE_CLIENT_ID, AUTHORISED_USERS } from '../App';
 
 function Login() {
   let navigate = useNavigate()
 
   const validateLogin = (response) => {
-    console.log("Authenticated User is - ", response.profileObj.email)
+    console.log("Authenticated User is - ", response.profileObj['email'])
 
-    if (REACT_APP_AUTHORISED_USERS.includes(response.profileObj.email)) {
+    if (AUTHORISED_USERS.includes(response.profileObj['email'])) {
       localStorage.setItem('Authenticated', true)
       navigate('/adddiscount')
     } else {
@@ -30,7 +30,7 @@ function Login() {
               </div>
               <div align="center">
                 <GoogleLogin
-                 clientId={REACT_APP_GOOGLE_CLIENT_ID}
+                 clientId={GOOGLE_CLIENT_ID}
                  buttonText="Sign in with Google"
                  onSuccess={validateLogin}
                  onFailure={validateLogin}

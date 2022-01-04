@@ -2,7 +2,7 @@ import React from 'react';
 import { GoogleLogout } from 'react-google-login';
 import { useNavigate } from 'react-router';
 
-import { REACT_APP_GOOGLE_CLIENT_ID } from '../App';
+import { GOOGLE_CLIENT_ID } from '../App';
 
 function AddDiscount() {
   let navigate = useNavigate();
@@ -25,7 +25,7 @@ function AddDiscount() {
       <div className="navbar-end">
         <a className="navbar-item">
         <GoogleLogout
-          clientId={REACT_APP_GOOGLE_CLIENT_ID}
+          clientId={GOOGLE_CLIENT_ID}
           onLogoutSuccess={isLoggedOut}
           buttonText="Logout"
           icon={false}>

@@ -5,8 +5,8 @@ import AddDiscount from './components/AddDiscount';
 import Login from './components/Login';
 import ProtectedRoute from './components/ProtectedRoute';
 
-export const REACT_APP_GOOGLE_CLIENT_ID = '582904936009-gog3ia1eq2ded6fqol1p6gchsc9ogp6f.apps.googleusercontent.com'
-export const REACT_APP_AUTHORISED_USERS = ['khprasaad@gmail.com']
+export const GOOGLE_CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
+export const AUTHORISED_USERS = process.env.REACT_APP_AUTHORISED_USERS;
 
 function App() {
   return (
