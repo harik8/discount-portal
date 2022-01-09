@@ -123,7 +123,7 @@ class AddDiscount extends Component {
                <div className="control">
                 <textarea 
                   className="textarea is-hovered"
-                  rows="5"
+                  rows="2"
                   required
                   value={this.state.discount_message}
                   onChange={this.onChangeDiscountMessage}
@@ -174,7 +174,7 @@ class AddDiscount extends Component {
                <div className="control">
                 <textarea 
                   className="textarea is-hovered" 
-                  rows="10"
+                  rows="5"
                   value={this.state.subscribers_list}
                   onChange={this.onChangeSubscribersList}
                   required
