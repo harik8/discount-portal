@@ -64,10 +64,10 @@ class AddDiscount extends Component {
       discount_message: this.state.discount_message,
       discount_percentage: this.state.discount_percentage,
       subscribers_list: this.state.subscribers_list,
-      added_date: moment().format("DD-MM-YYYY"),
+      added_date: moment().format("D-M-YYYY"),
       valid_for: this.state.valid_for,
       code: this.state.code,
-      expired_date: moment().add(this.state.valid_for, 'days').format("DD-MM-YYYY")
+      expired_date: moment().add(this.state.valid_for, 'days').format("D-M-YYYY")
     };
 
     let headers = {
