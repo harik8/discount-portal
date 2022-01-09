@@ -13,16 +13,18 @@ class AddDiscount extends Component {
   constructor(props) {
     super(props);
     this.onChangeDiscountMessage = this.onChangeDiscountMessage.bind(this);
-    this.onChangeDiscountPoster = this.onChangeDiscountPoster.bind(this);
+    this.onChangeDiscountPercentage = this.onChangeDiscountPercentage.bind(this);
     this.onChangeSubscribersList = this.onChangeSubscribersList.bind(this);
     this.onChangeValidFor = this.onChangeValidFor.bind(this);
+    this.onChangeCode = this.onChangeCode.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       discount_message: '',
-      discount_poster: '',
+      discount_percentage: '',
       subscribers_list:'',
-      valid_for: ''
+      valid_for: '',
+      code: ''
     }
   }
   
@@ -32,9 +34,9 @@ class AddDiscount extends Component {
     });
   }
 
-  onChangeDiscountPoster(e) {
+  onChangeDiscountPercentage(e) {
     this.setState({
-      discount_poster: e.target.value
+      discount_percentage: e.target.value
     })  
   }
 
@@ -50,15 +52,22 @@ class AddDiscount extends Component {
     })
   }
 
+  onChangeCode(e) {
+    this.setState({
+      code: e.target.value
+    })
+  }
+
   onSubmit(e) {
     e.preventDefault();
     const obj = {
       discount_message: this.state.discount_message,
-      discount_poster: this.state.discount_poster,
+      discount_percentage: this.state.discount_percentage,
       subscribers_list: this.state.subscribers_list,
       added_date: moment().format("DD-MM-YYYY"),
       valid_for: this.state.valid_for,
-      expireed_date: moment().add(this.state.valid_for, 'days').format("DD-MM-YYYY")
+      code: this.state.code,
+      expired_date: moment().add(this.state.valid_for, 'days').format("DD-MM-YYYY")
     };
 
     let headers = {
@@ -122,14 +131,14 @@ class AddDiscount extends Component {
               </div>
             </div>
             <div className="field">
-              <label className="label">Image link</label>
+              <label className="label">Discount %</label>
                <div className="control">
                 <input 
                   className="input is-hovered" 
                   type="text" 
                   name="link"
-                  value={this.state.discount_poster}
-                  onChange={this.onChangeDiscountPoster}
+                  value={this.state.discount}
+                  onChange={this.onChangeDiscountPercentage}
                   required
                 />
                </div>
@@ -143,6 +152,19 @@ class AddDiscount extends Component {
                   name="validfor"
                   value={this.state.valid_for}
                   onChange={this.onChangeValidFor}
+                  required
+                />
+               </div>
+            </div>
+            <div className="field">
+              <label className="label">Discount code</label>
+               <div className="control">
+                <input 
+                  className="input is-hovered" 
+                  type="text" 
+                  name="code"
+                  value={this.state.code}
+                  onChange={this.onChangeCode}
                   required
                 />
                </div>
