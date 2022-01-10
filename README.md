@@ -10,8 +10,17 @@ Click [here](https://dev.to/harik8/discount-portal-send-discount-newsletters-1e0
 <br>
 
 <p align="center">
-  <img width="400" height="400" src="assets/screenshots/discount.png">
+  <img width="200" height="200" src="assets/screenshots/discount.png">
 </p>
+
+<br>
+
+# Folder Structure
+
+- assets    - Screenshots and images.
+- backend   - Backend service (server.py) which add records to Mongo Atlas Database via Data API.
+- functions - AWS Lambda function to send mails and Realm scheduler function to clean DB.
+- templates - AWS SES Email template.
 
 <br>
 
